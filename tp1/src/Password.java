@@ -40,8 +40,14 @@ public class Password {
      */
     public static String bruteForce6Digit(String targetHash) {
 
-        // Code here
-
+        for (int i = 0; i < 1000000; i++) {
+            String tested = String.format("%06d", i);
+            String response = hashPassword(tested);
+            if (response.equals(targetHash))
+                return tested;
+            else
+                continue;
+        }
         return null;
     }
 
@@ -61,6 +67,46 @@ public class Password {
      */
     public static boolean isStrongPassword(String password) {
 
+        boolean isCondition1 = password.length() >= 12;
+
+        boolean isCondition2 = false;
+        for (int i = 0; i < password.length(); i++) {
+            char caracter = password.charAt(i);
+            if (Character.isUpperCase(caracter)) {
+                isCondition2 = true;
+                break;
+            }
+        }
+
+        boolean isCondition3 = false;
+        for (int i = 0; i < password.length(); i++) {
+            char caracter = password.charAt(i);
+            if (Character.isLowerCase(caracter)) {
+                isCondition3 = true;
+                break;
+            }
+        }
+
+        boolean isCondition4 = false;
+        for (int i = 0; i < password.length(); i++) {
+            char caracter = password.charAt(i);
+            if (Character.isDigit(caracter)) {
+                isCondition4 = true;
+                break;
+            }
+        }
+
+        boolean isCondition5 = true;
+        for (int i = 0; i < password.length(); i++) {
+            char caracter = password.charAt(i);
+            if (Character.isWhitespace(caracter)) {
+                isCondition5 = false;
+                break;
+            }
+        }
+
+        if (isCondition1 && isCondition2 && isCondition3 && isCondition4 && isCondition5)
+            return true;
         // Code here
 
         return false;
@@ -77,7 +123,13 @@ public class Password {
     public static HashMap<String, Boolean> checkPasswordsList(ArrayList<String> passwords) {
 
         // Code here
-
+        HashMap<String, Boolean> passStrong = new HashMap<>();
+        if (passwords.size() > 0) {
+            for (int i = 0; i < passwords.size(); i++) {
+                passStrong.put(passwords.get(i), isStrongPassword(passwords.get(i)));
+            }
+            return passStrong;
+        }
         return null;
     }
 
