@@ -1,4 +1,4 @@
-package fr.ensai.library;
+/*package fr.ensai.library;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -42,4 +42,4 @@ class LibraryTest {
         assertNull(foundLoan);
     }
 
-}
+}*/

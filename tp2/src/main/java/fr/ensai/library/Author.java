@@ -1,11 +1,10 @@
 package fr.ensai.library;
-
 import java.util.Objects;
 
 /**
  * Represents an Author.
  */
-public class Author {
+public class Author extends Person {
 
     // Attributes
     private String name;
@@ -16,14 +15,10 @@ public class Author {
      * Constructs a new Book object.
      */
     public Author(String name, int age, String nationality) {
-        this.name = name;
-        this.age = age;
+        super(name,age);
         this.nationality = nationality;
     }
 
-    public String getName() {
-        return this.name;
-    }
 
     /**
      * Indicates whether some other object is "equal to" this one.
@@ -42,7 +37,7 @@ public class Author {
 
     @Override
     public String toString() {
-        return "Author " + name;
+        return "Author " + getName();
     }
 
 }
