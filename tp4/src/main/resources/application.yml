@@ -10,16 +10,16 @@ spring:
     prefix: classpath:/templates/
     suffix: .html
   datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:bootapp;DB_CLOSE_DELAY=-1
-    username: sa
-    password: password
+    driver-class-name: org.postgresql.Driver # Changez le driver H2 par PostgreSQL
+    url: jdbc:postgresql://postgresql-60082.user-id2604:5432/defaultdb
+    username: user-id2604
+    password: ihjq4l9jxqzz4lf8sutv # Votre mot de passe PostgreSQL
   jpa:
     hibernate:
       ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+        dialect: org.hibernate.dialect.PostgreSQLDialect # Assurez-vous que le dialecte est pour PostgreSQL
   sql:
     init:
       mode: always
